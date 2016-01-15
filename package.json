@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "description": "Enter flight info, get checked in on time",
   "main": "cli.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kkennis/southwest-checkin-bot-cli.git"
+  },
   "scripts": {
+    "start": "node cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "southwest",
     "travel",
-    "casperjs"
+    "casperjs",
+    "life-improver"
   ],
   "author": "Kevin Kennis",
   "license": "MIT",
