@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "casper": "^0.1.1",
+    "moment": "^2.11.1",
     "readline-sync": "^1.2.22"
   }
 }
