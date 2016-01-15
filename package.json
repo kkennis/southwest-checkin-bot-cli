@@ -1,0 +1,19 @@
+{
+  "name": "checkin-bot",
+  "version": "1.0.0",
+  "description": "Enter flight info, get checked in on time",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "southwest",
+    "travel",
+    "casperjs"
+  ],
+  "author": "Kevin Kennis",
+  "license": "MIT",
+  "dependencies": {
+    "casper": "^0.1.1"
+  }
+}
