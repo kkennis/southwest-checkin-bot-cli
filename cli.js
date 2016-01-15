@@ -39,9 +39,10 @@ var departureTime;
 var depTimeValid = false;
 
 while (!depTimeValid){
-  departureTime = readlineSync.question(`Almost done. Your departure time? `)
+  departureTime = readlineSync.question(`Almost done. Your departure time? `);
+  var depTimeTest = moment(new Date(departureTime));
 
-  if (/*invalid*/){
+  if (!depTimeTest.isValid()){
     console.log(`I couldn't understand that departure time. Try again? (Maybe include AM/PM, or use 24-hour format)`);
   } else {
     depTimeValid = true;
@@ -52,7 +53,8 @@ var departureTz;
 var depTzValid = false;
 
 while (!depTzValid){
-  departureTz = readlineSync.question(`Last question. What timezone ar you departing from? You can leave this blank if it's the one you're currently in.`)
+  departureTz = readlineSync.question(`Last question. What timezone ar you departing from? You can leave this blank if it's the one you're currently in.`);
+
 
   // Validate, check, and set.
 }
