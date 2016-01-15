@@ -1,8 +1,8 @@
 {
-  "name": "checkin-bot",
+  "name": "southwest-checkin-bot-cli",
   "version": "1.0.0",
   "description": "Enter flight info, get checked in on time",
-  "main": "bot.js",
+  "main": "cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +14,7 @@
   "author": "Kevin Kennis",
   "license": "MIT",
   "dependencies": {
-    "casper": "^0.1.1"
+    "casper": "^0.1.1",
+    "readline-sync": "^1.2.22"
   }
 }
