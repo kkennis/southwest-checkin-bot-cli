@@ -1,5 +1,7 @@
 var readlineSync = require('readline-sync');
 var moment = require('moment');
+require('moment-timezone');
+var timezones = require('./timezones');
 
 console.log(`Hey there! Don't want to rearrange your schedule around Southwest? Good, that's why I exist! Let's get started.`);
 
@@ -39,8 +41,8 @@ var departureTime;
 var depTimeValid = false;
 
 while (!depTimeValid){
-  departureTime = readlineSync.question(`Almost done. Your departure time? `);
-  var depTimeTest = moment(new Date(departureTime));
+  departureTime = readlineSync.question(`Almost done. Your departure time? (Format like so: HH:MM AM/PM) `);
+  var depTimeTest = moment(departureTime, 'hh:mm a');
 
   if (!depTimeTest.isValid()){
     console.log(`I couldn't understand that departure time. Try again? (Maybe include AM/PM, or use 24-hour format)`);
@@ -53,15 +55,34 @@ var departureTz;
 var depTzValid = false;
 
 while (!depTzValid){
-  departureTz = readlineSync.question(`Last question. What timezone ar you departing from? You can leave this blank if it's the one you're currently in.`);
+  departureTz = readlineSync.question(`Last question. What (IANA) timezone are you departing from? You can leave this blank if you're currently in the same timezone as your departure.`);
 
-
-  // Validate, check, and set.
+  if (!departureTz){
+    departureTz = moment.tz.guess();
+    depTzValid = true;
+  } else if (timezones.indexOf(departureTz) < 0) {
+    console.log(`Sorry, I coudn't understand that timezone. Please use a timezone from the IANA timezone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Try again?`);
+  } else {
+    depTzValid = true;
+  }
 }
+
+var departure = moment(Date.parse(`${departureDate} ${departureTime}`));
+console.log(departure.toString());
+
+var results = {
+  firstName: firstName,
+  lastName: lastName,
+  confirmationNumber: confirmationNumber,
+  departure: departure
+}
+
+// schedule and run with results
+
 
 // Then build moment object...
 // Then schedule casper script to run at proper time, with proper args, in a docker.
 
-console.log(departureDate);
+
 
 
