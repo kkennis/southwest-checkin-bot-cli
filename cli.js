@@ -67,14 +67,13 @@ while (!depTzValid){
   }
 }
 
-// This needs timezone
-// var departure = moment(Date.parse(`${departureDate} ${departureTime}`));
+var departure = moment(Date.parse(`${departureDate} ${departureTime}`)).tz(departureTz).date();
 
 var results = {
   firstName: firstName,
   lastName: lastName,
   confirmationNumber: confirmationNumber,
-  departure: departure
+  departure: departure,
 }
 
 // schedule and run with results
