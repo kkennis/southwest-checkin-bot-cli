@@ -67,8 +67,8 @@ while (!depTzValid){
   }
 }
 
-var departure = moment(Date.parse(`${departureDate} ${departureTime}`));
-console.log(departure.toString());
+// This needs timezone
+// var departure = moment(Date.parse(`${departureDate} ${departureTime}`));
 
 var results = {
   firstName: firstName,
